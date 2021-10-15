@@ -32,6 +32,9 @@ random.seed(0)  # Python random
 input_adata = "../data/adata_scvi.h5ad"
 
 # %%
+sc.logging.print_versions()
+
+# %%
 # !lscpu
 
 # %%

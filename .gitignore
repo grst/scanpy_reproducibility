@@ -3,3 +3,4 @@ results
 *.ipynb
 .nextflow*
 gh-pages
+sinfo-*.txt
