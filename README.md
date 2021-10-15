@@ -20,3 +20,8 @@ There are a few minor things you may need to adjust on your system:
  * The `clusterOptions` is used to submit the jobs to different nodes on our HPC and
    is specific to our queue and node names. 
  * The node names are passed on to `clusterOptions` from a channel defined in `main.nf`. 
+
+## Results
+
+The results (tested on 5 nodes, 4 of which have different CPUs) are available from: 
+https://grst.github.io/scanpy_reproducibility/
