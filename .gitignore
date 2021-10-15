@@ -2,3 +2,4 @@
 results
 *.ipynb
 .nextflow*
+gh-pages

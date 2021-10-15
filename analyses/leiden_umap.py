@@ -42,6 +42,17 @@ sc.pp.neighbors(adata, use_rep="X_scVI")
 sc.tl.umap(adata)
 sc.tl.leiden(adata)
 
+# %% [markdown]
+# Check (superficially) if connectivities are the same
+
+# %%
+(
+    adata.obsp["connectivities"].sum(),
+    adata.obsp["connectivities"][
+        np.random.choice(adata.shape[0], 1000, replace=False), :
+    ].sum(),
+)
+
 # %%
 sc.pl.umap(adata, color="leiden", legend_loc="on data")
 
