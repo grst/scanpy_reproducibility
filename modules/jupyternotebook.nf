@@ -1,7 +1,9 @@
 process JUPYTERNOTEBOOK {
     publishDir "${params.outdir}"
+
     // conda "/home/sturm/.conda/envs/pircher-sc-integrate2"
-    conda "ipykernel=6.0.3 jupytext=1.11.4 nbconvert=6.1.0 papermill=2.3.3 scanpy=1.7.2 leidenalg=0.8.7"
+    // conda "ipykernel=6.0.3 jupytext=1.11.4 nbconvert=6.1.0 papermill=2.3.3 scanpy=1.7.2 leidenalg=0.8.7"
+    container "https://github.com/grst/scanpy_reproducibility/releases/download/containers-0.1.0/scanpy_reproducibility.sif"
     clusterOptions "-V -S /bin/bash -q all.q@$node"
 
     input:

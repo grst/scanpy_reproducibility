@@ -2,4 +2,4 @@
 
 nextflow run ./main.nf -resume \
     -profile icbi \
-    -w /home/sturm/scratch/projects/2021/scanpy_reproducibility
+    -w $(readlink -f /home/sturm/scratch/projects/2021/scanpy_reproducibility)
