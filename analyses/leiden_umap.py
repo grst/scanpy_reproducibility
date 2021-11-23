@@ -17,6 +17,9 @@ import os
 
 os.environ["PYTHONHASHSEED"] = "0"
 
+from threadpoolctl import threadpool_limits
+threadpool_limits(1)
+
 # %%
 import scanpy as sc
 import numpy as np
@@ -41,20 +44,15 @@ sc.logging.print_versions()
 adata = sc.read_h5ad(input_adata)
 
 # %%
-sc.pp.neighbors(adata, use_rep="X_scVI")
-sc.tl.umap(adata)
-sc.tl.leiden(adata)
-
-# %% [markdown]
-# Check (superficially) if connectivities are the same
+adata
 
 # %%
-(
-    adata.obsp["connectivities"].sum(),
-    adata.obsp["connectivities"][
-        np.random.choice(adata.shape[0], 1000, replace=False), :
-    ].sum(),
-)
+if "connectivities" not in adata.obsp:
+    sc.pp.neighbors(adata, use_rep="X_scVI")
+
+# %%
+sc.tl.umap(adata)
+sc.tl.leiden(adata)
 
 # %%
 sc.pl.umap(adata, color="leiden", legend_loc="on data")

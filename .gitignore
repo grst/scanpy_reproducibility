@@ -1,7 +1,13 @@
 .ipynb_checkpoints
+data
 results
 *.ipynb
 .nextflow*
 gh-pages
 sinfo-*.txt
 containers
+__pycache__
+timeline*
+trace*
+report*
+.vscode

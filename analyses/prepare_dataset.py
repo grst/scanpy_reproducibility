@@ -38,6 +38,10 @@ test_dataset = sc.AnnData(
 test_dataset.write_h5ad("./data/adata_scvi.h5ad", compression="gzip")
 
 # %%
-# !ls -lh data
+sc.pp.neighbors(test_dataset, use_rep="X_scVI")
 
 # %%
+test_dataset.write_h5ad("./data/adata_scvi_neighbors.h5ad", compression="gzip")
+
+# %%
+# !ls -lh data
