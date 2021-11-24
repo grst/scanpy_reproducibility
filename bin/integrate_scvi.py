@@ -120,7 +120,7 @@ if __name__ == "__main__":
         dest="use_hvg",
         type=bool,
         help="Whether to use all genes (False) or the 6000 most highly variable genese (True)",
-        default="1",
+        default=False,
     )
     parser.add_argument(
         "--batch_key",
@@ -148,7 +148,7 @@ if __name__ == "__main__":
         dest="use_gpu",
         type=bool,
         help="Use GPU",
-        default="1",
+        default=False,
     )
     args = parser.parse_args()
     main(
