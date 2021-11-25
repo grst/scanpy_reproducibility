@@ -1,12 +1,12 @@
 
 process NEIGHBORS {
-    cpus { queue.contains("-15") ? 4 : n_cpus }
+    cpus { n_cpus }
     conda "/home/sturm/.conda/envs/pircher-sc-integrate2"
-    clusterOptions "-V -S /bin/bash -q \"$queue\""
+    clusterOptions "-V -S /bin/bash -q \"${params.queues[machine]}\""
     // container "containers/sc-integrate2.sif"
 
     input:
-    tuple val(meta), path(input_adata), val(machine), val(n_cpus)
+    tuple val(meta), path(adata), val(machine), val(n_cpus)
     val use_rep
 
     output:
